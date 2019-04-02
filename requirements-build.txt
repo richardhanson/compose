@@ -1,1 +1,1 @@
-pyinstaller==3.4
+git+git://github.com/pyinstaller/pyinstaller@4f051b301b0ed0a79b8605a07719222c19459e3d#egg=pyinstaller

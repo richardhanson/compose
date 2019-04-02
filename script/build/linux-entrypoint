@@ -20,10 +20,12 @@ echo "${DOCKER_COMPOSE_GITSHA}" > compose/GITSHA
 export PATH="${CODE_PATH}/pyinstaller:${PATH}"
 
 if [ ! -z "${BUILD_BOOTLOADER}" ]; then
-    # Build bootloader for alpine
-    git clone --single-branch --branch master https://github.com/pyinstaller/pyinstaller.git /tmp/pyinstaller
+    # Build bootloader for alpine; develop is the main branch
+    git clone --single-branch --branch develop https://github.com/pyinstaller/pyinstaller.git /tmp/pyinstaller
     cd /tmp/pyinstaller/bootloader
-    git checkout v3.4
+    # Checkout commit corresponding to version in requirements-build; should update to v3.5 when available
+    # This version should issue: https://github.com/docker/compose/issues/6347
+    git checkout 4f051b301b0ed0a79b8605a07719222c19459e3d
     "${VENV}"/bin/python3 ./waf configure --no-lsb all
     "${VENV}"/bin/pip3 install ..
     cd "${CODE_PATH}"

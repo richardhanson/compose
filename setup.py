@@ -39,7 +39,7 @@ install_requires = [
     'docker[ssh] >= 3.7.0, < 4.0.2',
     'dockerpty >= 0.4.1, < 0.5',
     'six >= 1.3.0, < 2',
-    'jsonschema >= 2.5.1, < 3',
+    'jsonschema >= 3, < 4',
 ]
 
 
